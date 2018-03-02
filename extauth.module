@@ -1,4 +1,7 @@
 <?php
+
+
+
 /**
  * Implement hook_help() to display a small help message
  * if somebody clicks the "Help" link on the modules list.
@@ -25,7 +28,8 @@ function extauth_help( $path, $arg )
 function extauth_form_user_login_alter( &$form, $form_state )
 {
     unset($form['links']);
-    $form['#validate'] = array( 'user_login_name_validate', 'extauth_login_validate', 'user_login_final_validate' );
+     $form['#action'] = 'http://localhost/drupal8test';
+    ///$form['#validate'] = array( 'user_login_name_validate', 'extauth_login_validate', 'user_login_final_validate' );
 }
 
 function extauth_form_user_login_block_alter( &$form, $form_state )
